@@ -29,8 +29,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (token) fetchTask(token);
-  }, [token]);
+  fetch(`${import.meta.env.VITE_API_URL}/get`)
+    .then(res => res.json())
+    .then(data => console.log(data));
+}, []);
 
   const logout = () => {
     setToken("");
